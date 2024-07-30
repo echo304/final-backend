@@ -5,10 +5,13 @@ const connectDB = require('./src/config/database');
 const { Product } = require('./src/models/product');
 
 connectDB();
+const corsOptions = {
+    origin: ['http://localhost:3000', 'https://final-frontend-gold.vercel.app']
+}
 
 const app = express();
 app.use(bodyParser.json());
-app.use(cors())
+app.use(cors(corsOptions))
 
 app.get('/products', async (req, res) => {
     try {
