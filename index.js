@@ -1,8 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors')
-const connectDB = require('./config/database');
-const { Product } = require('./models/product');
+const connectDB = require('./src/config/database');
+const { Product } = require('./src/models/product');
 
 connectDB();
 
@@ -37,5 +37,3 @@ app.get('/products/:id', async (req, res) => {
 app.listen(3000, () => {
     console.log('Server is running on port 3000');
 });
-
-module.exports = app;
